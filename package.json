@@ -1,0 +1,44 @@
+{
+  "name": "dsh-projection-guard",
+  "version": "0.1.0",
+  "description": "Guards the persisted session-projection cache: per-row JSON degradation so one misbehaving projection unit (e.g. a third-party plugin storing a Map) can never stall session titles or the whole cache again, plus a startup self-heal that backfills missing titles. · 会话投影缓存守卫：逐行 JSON 降级 + 启动自愈补全标题，单个违规投影单元不再拖垮标题缓存。",
+  "main": "lib/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": "./client/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "client",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/guard.test.js"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-session": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-session-projection": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-session-projection-cache": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-session-persistence": "^0.1.0-rc.6"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "cordis",
+    "session",
+    "projection",
+    "cache",
+    "title"
+  ],
+  "license": "MIT"
+}
